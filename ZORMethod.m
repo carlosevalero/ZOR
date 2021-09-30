@@ -1,9 +1,10 @@
-function Tn=ZORMethod(T,g)
+function Tn=ZORMethod(T,g,ng)
 % Tn=ZORMethod(T,g)
 %    This function computes an matrix Tn with g columns, taking into
 %    account the columms of the matrix T using the Gram-Schmidt Algorithm
 %    T Matrix to reduce (n x p)
 %    g Number of generators wished (1x1).
+%    ng Number between 1-p. We recommend 2 for a trade-off between 
 [n,m]=size(T);
 if g<n || g > m
     msgbox("The number of generators wished is not feasible","ERROR",'error');
@@ -14,7 +15,7 @@ end
     T=T(:,index);
     T3=T;
     volF=0;
-    for i=1:1
+    for i=1:ng
         T=T3;
         Tr=zeros(n);
         Tr(:,1)=T(:,i);

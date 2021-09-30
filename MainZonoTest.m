@@ -4,7 +4,7 @@ clear all;
 close all;
 clc;
 %% Creating Random Zonotopes
-Kmax=5000;%Test(z,1);  %Maximum number of zonotopes with NMD and NMO
+Kmax=10;%Test(z,1);  %Maximum number of zonotopes with NMD and NMO
 NMD=15;%Test(z,2);   %Number Maximum of Dimension
 NMO=15;%Test(z,3);   %Number Maximum of Orders
 path = pwd ;   % mention your path
@@ -48,7 +48,7 @@ else
             for k=1:Kmax   %number of different zonotopes
                 T=Z0{i,j,k}.generators;
                 tic;
-                Z{Nm+1}{i,j,k}=ZORMethod(T,i+1);
+                Z{Nm+1}{i,j,k}=ZORMethod(T,i+1,2);
                 %                     Z{Nm+1}{i,j,k}=optimalzonoReducProj(Z0{i,j,k}.generators,i+1);
                 CPUT{Nm+1}{i,j,k}=toc;
                 V{Nm+1}{i,j,k}=(2^i)*abs(det(Z{Nm+1}{i,j,k}));
